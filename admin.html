@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Dashboard</title>
+<style>
+body{font-family:Arial;background:#f4f4f4;padding:20px;}
+table{border-collapse:collapse;width:100%;background:white;}
+th,td{border:1px solid #ccc;padding:8px;text-align:left;}
+th{background:#0055aa;color:white;}
+button{margin:10px 0;padding:8px 15px;}
+</style>
+</head>
+<body>
+
+<h2>Applicant Dashboard</h2>
+<button onclick="exportTable()">Export to Excel</button>
+
+<table id="table">
+<thead></thead>
+<tbody></tbody>
+</table>
+
+<script>
+
+fetch("YOUR_WEB_APP_URL")
+.then(res=>res.json())
+.then(data=>{
+let table=document.getElementById("table");
+let thead=table.querySelector("thead");
+let tbody=table.querySelector("tbody");
+
+let headers=Object.keys(data[0]);
+thead.innerHTML="<tr>"+headers.map(h=>"<th>"+h+"</th>").join("")+"</tr>";
+
+data.forEach(row=>{
+tbody.innerHTML+= "<tr>"+headers.map(h=>"<td>"+row[h]+"</td>").join("")+"</tr>";
+});
+});
+
+function exportTable(){
+let table=document.getElementById("table").outerHTML;
+let blob=new Blob([table],{type:"application/vnd.ms-excel"});
+let url=URL.createObjectURL(blob);
+let a=document.createElement("a");
+a.href=url;
+a.download="applicants.xls";
+a.click();
+}
+</script>
+
+</body>
+</html>
