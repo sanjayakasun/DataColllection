@@ -1,4 +1,4 @@
-// AGE AUTO CALCULATION
+// AGE CALCULATION
 document.getElementById("birthday").addEventListener("change", function () {
   let birth = new Date(this.value);
   let refDate = new Date("2025-06-30");
@@ -21,64 +21,56 @@ document.getElementById("birthday").addEventListener("change", function () {
     `${years} years ${months} months ${days} days`;
 });
 
+
+// SUBMIT FORM
 document.getElementById("form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   let nic = document.getElementById("nic").value;
   let mobile = document.getElementById("mobile").value;
 
-  // NIC validation
+  // VALIDATION
   if (!/^([0-9]{9}[vVxX]|[0-9]{12})$/.test(nic)) {
-    document.getElementById("msg").innerHTML = "<p class='error'>Invalid NIC</p>";
+    document.getElementById("msg").innerHTML = "Invalid NIC";
     return;
   }
 
-  // Mobile validation
   if (!/^07[0-9]{8}$/.test(mobile)) {
-    document.getElementById("msg").innerHTML = "<p class='error'>Invalid Mobile</p>";
+    document.getElementById("msg").innerHTML = "Invalid Mobile";
     return;
   }
 
   const form = document.getElementById("form");
   const formData = new FormData(form);
 
-  let data = {};
-
-  // Normal fields
-  formData.forEach((value, key) => {
-    if (key !== "selectedDistricts") {
-      data[key] = value;
-    }
-  });
-
-  // ✅ FIX CHECKBOXES (correct name)
+  // FIX CHECKBOX
   let selectedDistricts = [];
   document.querySelectorAll('input[name="selectedDistricts"]:checked')
     .forEach(el => selectedDistricts.push(el.value));
 
+  const data = Object.fromEntries(formData.entries());
+
+  // IMPORTANT: same name as Apps Script
   data.selectedDistricts = selectedDistricts.join(", ");
-
-  console.log(data); // 🔥 DEBUG
-
-  const scriptURL = "https://script.google.com/macros/s/AKfycbzeP8s3LoyA0hDYSxSnGbSjKinr0_GI2k2QF6XblZlZUw9-siC1d5FW7KjLhAjFChqKxg/exec";
 
   document.getElementById("msg").innerHTML = "Submitting...";
 
   try {
-    const response = await fetch(scriptURL, {
+    const response = await fetch("https://script.google.com/macros/s/AKfycbzgQY11v5hKBNomfOcpcVcrXAgjtJrbMcPOXUeBzl3c-9rV1SGeg49KDgmgtPexjpZC5g/exec", {
       method: "POST",
       body: JSON.stringify(data)
     });
-
+      console.log(data);
     const result = await response.json();
 
     if (result.status === "success") {
-      document.getElementById("msg").innerHTML = "✅ Application submitted successfully!";
+      document.getElementById("msg").innerHTML = "✅ Submitted successfully";
       form.reset();
     } else {
-      document.getElementById("msg").innerHTML = "❌ Submission failed!";
+      document.getElementById("msg").innerHTML = "❌ Failed";
     }
+
   } catch (error) {
-    document.getElementById("msg").innerHTML = "❌ Error submitting form!";
+    document.getElementById("msg").innerHTML = "❌ Error";
   }
 });
