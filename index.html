@@ -1,212 +1,536 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Recruitment Data Collection</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recruitment Data Collection</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<style>
-body{font-family:Poppins;background:#f2f4f8;margin:0;}
-.header{
-background:linear-gradient(135deg,#003366,#0055aa);
-color:white;text-align:center;padding:30px;
-animation:fade 1s ease-in-out;}
-.container{
-max-width:1100px;margin:30px auto;
-background:white;padding:30px;border-radius:8px;
-box-shadow:0 5px 20px rgba(0,0,0,0.1);}
-.section{margin-bottom:40px;}
-.section h2{color:#0055aa;border-left:5px solid #0055aa;padding-left:10px;}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px;}
-input,select,textarea{
-padding:10px;border:1px solid #ccc;border-radius:6px;width:100%;}
-button{
-background:#0055aa;color:white;padding:12px 25px;
-border:none;border-radius:6px;cursor:pointer;}
-button:hover{background:#003366;}
-.error{color:red;font-size:13px;}
-.success{color:green;font-weight:600;}
-@keyframes fade{from{opacity:0;}to{opacity:1;}}
-</style>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
+
 <body>
+    <div class="header">
+        <h1>
+            කළමනාකරණ සේවා නිලධාරි සේවයේ III ශ්‍රේණියට බඳවා ගැනීමේ විවෘත තරග විභාගය
+            -2024(2025)
+        </h1>
+        <h1>
+            முகாமைத்துவ சேவை உத்தியோகத்தர் சேவையின் தரம் III ற்கு ஆடசேர்ப்பதற்கான
+            மட்டுப்படுத்தப்பட்ட போட்டிப் பரீட்சை - 2024(2025)
+        </h1>
+    </div>
 
-<div class="header">
-<h1>Open Competitive Examination – 2nd Round Data Collection</h1>
-</div>
+    <div class="container">
+        <form id="form">
+            <!--Instruction-->
+            <div class="section">
+                <h2>මූලික තොරතුරු<br>அடிப்படை தகவல்</h2>
+                <div class="grid">
+                    <div class="field">
+                        <label>Email</label>
+                        <input name="email" required />
+                        <small>Example: someone@gmail.com</small>
+                    </div>
+                    <div class="field">
+                        <label>සම්මුඛ පරීක්ෂණ කැඳවීම් අංකය நேர்முகப்பரீட்சை அழைப்பு எண் :
+                            <br />
+                            [ඔබ වෙත යොමු කර ඇති ලිපියේ සඳහන් අංකය නිවැරදිව සඳහන් කරන්න.
+                            உங்கள் நேர்முகப்பரீட்சை அழைப்பு எண்ணை சரியாக உள்ளிடவும்.]
+                        </label>
+                        <input name="callingNumber" required />
+                        <small>Example: MSO/O/2025/S/1A/0000</small>
+                    </div>
+                </div>
+            </div>
 
-<div class="container">
-<form id="form">
+            <!-- PERSONAL INFORMATION -->
+            <div class="section">
+                <h2>පෞද්ගලික තොරතුරු/ தனிப்பட்ட தகவல்</h2>
 
-<!-- PERSONAL INFORMATION -->
-<div class="section">
-<h2>Personal Information</h2>
-<div class="grid">
+                <div class="grid">
+                    <div class="field">
+                        <label>මුලකුරු සමග නම (සිංහලෙන්/දෙමළෙන්) <br />முதலெழுத்துக்களுடன்
+                            பெயர் (சிங்களம்/தமிழ்) :
+                        </label>
+                        <input name="nameSinhala" required />
+                        <small>(උදා :- ඒ.බී.සී.ඩී. පෙරේරා/ உதா:- ஏ.பி.சி.டி. பெரேரா)</small>
+                    </div>
 
-<input name="callingNumber" placeholder="Interview Calling Number" required>
-<input name="nameSinhala" placeholder="Name with initials (Sinhala/Tamil)" required>
-<input name="nameEnglish" placeholder="Name with initials (English)" required>
+                    <div class="field">
+                        <label>මුලකුරු සමග නම (ඉංග්‍රීසියෙන්) <br />முதலெழுத்துக்களுடன் பெயர்
+                            (ஆங்கிலம்) :</label>
+                        <input name="nameEnglish" required />
+                        <small>(උදා :- A.B.C.D. Perera/ உதா:- A.B.C.D. Perera)</small>
+                    </div>
 
-<select name="prefix" required>
-<option value="">Prefix</option>
-<option>Mr</option>
-<option>Miss</option>
-<option>Mrs</option>
-</select>
+                    <div class="field">
+                        <label>මයා/මෙය/මිය <br />திரு/திருமதி/செல்வி :</label>
+                        <select name="prefix" required>
+                            <option value="">Select</option>
+                            <option>මයා/ திரு</option>
+                            <option>මෙය/ செல்வி</option>
+                            <option>මිය/ திருமதி</option>
+                        </select>
+                    </div>
 
-<input name="fullNameSinhala" placeholder="Full Name (Sinhala/Tamil)" required>
-<input name="fullNameEnglish" placeholder="Full Name (English)" required>
-<input name="nic" id="nic" placeholder="NIC Number" required>
-<select name="gender" required>
-<option value="">Gender</option>
-<option>Male</option>
-<option>Female</option>
-</select>
+                    <div class="field">
+                        <label>සම්පූර්ණ නම (සිංහලෙන්/දෙමළෙන්)<br />முழுப் பெயர்
+                            (சிங்களம்/தமிழ்) :
+                        </label>
+                        <input name="fullNameSinhala" required />
+                        <small>(උදා :- අජිත් බණ්ඩාර පෙරේරා/ உதா:- அஜித் பண்டார பெரேரா)</small>
+                    </div>
 
-<select name="civilStatus" required>
-<option value="">Civil Status</option>
-<option>Unmarried</option>
-<option>Married</option>
-</select>
+                    <div class="field">
+                        <label>ජාතික හැඳුනුම්පත් අංකය/ தேசிய அடையாள அட்டை இல.</label>
+                        <input name="nic" id="nic" required />
+                    </div>
 
-<input name="mobile" id="mobile" placeholder="Mobile Number (07XXXXXXXX)" required>
-<input name="whatsapp" placeholder="Whatsapp Number">
+                    <div class="field">
+                        <label>ස්ත්‍රී/පුරුෂ භාවය பாலினம்</label>
+                        <select name="gender" required>
+                            <option value="">Select</option>
+                            <option>පුරුෂ/ஆண்</option>
+                            <option>ස්ත්‍රී/பெண்</option>
+                        </select>
+                    </div>
 
-<input type="date" name="birthday" id="birthday" required>
-<input name="age" id="age" placeholder="Age (Auto Calculated)" readonly>
+                    <div class="field">
+                        <label>විවාහක/අවිවාහකභාවය <br />சிவில் நிலை :</label>
+                        <select name="civilStatus" required>
+                            <option value="">Select</option>
+                            <option>අවිවාහක/திருமணமாகாதவர்</option>
+                            <option>විවාහක/திருமணமானவர்</option>
+                        </select>
+                    </div>
 
-<select name="district" required>
-<option value="">Residential District</option>
-<option>Colombo</option>
-<option>Gampaha</option>
-<option>Kaluthara</option>
-<option>Matale</option>
-<option>Kandy</option>
-<option>Nuwaraeliya</option>
-<option>Galle</option>
-<option>Matara</option>
-<option>Hambanthota</option>
-<option>Jaffna</option>
-<option>Mannar</option>
-<option>Mullaitivu</option>
-<option>Vavuniya</option>
-<option>Trincomalee</option>
-<option>Batticaloa</option>
-<option>Ampara</option>
-<option>Puttalam</option>
-<option>Kurunagala</option>
-<option>Anuradhapura</option>
-<option>Polonnaruwa</option>
-<option>Badulla</option>
-<option>Monaragala</option>
-<option>Kegalle</option>
-<option>Rathnapura</option>
-<option>Kilinochchi</option>
-</select>
+                    <div class="field">
+                        <label>ස්ථීර ලිපිනය /நிரந்தர முகவரி :
+                            <br />(සිංහලෙන්/දෙමළෙන්)(சிங்களம்/தமிழ்)</label>
+                        <input name="PermanantAddress" required />
+                    </div>
 
-</div>
-</div>
+                    <div class="field">
+                        <label>පත්වීම් ලිපිය යොමු කළ යුතු ලිපිනය <br />
+                            நியமனக் கடிதம் அனுப்பப்பட வேண்டிய முகவரி :
+                            <br />(සිංහලෙන්/දෙමළෙන්)(சிங்களம்/தமிழ்)</label>
+                        <input name="AppointmentSendAddress" required />
+                    </div>
 
-<!-- O/L -->
-<div class="section">
-<h2>GCE O/L Qualifications</h2>
-<div class="grid">
-<input name="olYear" placeholder="Exam Year" required>
-<input name="olIndex" placeholder="Index Number" required>
-<input name="maths" placeholder="Mathematics - Grade" required>
-<input name="language" placeholder="Language - Grade" required>
-<input name="sub3" placeholder="Subject 03">
-<input name="sub4" placeholder="Subject 04">
-<input name="sub5" placeholder="Subject 05">
-<input name="sub6" placeholder="Subject 06">
-<input name="sub7" placeholder="Subject 07">
-<input name="sub8" placeholder="Subject 08">
-<input name="sub9" placeholder="Subject 09">
-<input name="sub10" placeholder="Subject 10">
-</div>
-</div>
+                    <div class="field">
+                        <label>පදිංචි දිස්ත්‍රික්කය/ மாவட்டம் :</label>
+                        <select name="ResidentialDistrict" required>
+                            <option value="">Select District</option>
+                            <option>කොළඹ / கொழும்பு</option>
+                            <option>ගාම්පහ / காம்பா</option>
+                            <option>කළුතර / களுத்தாரா</option>
+                            <option>මාතලේ / மாத்தளை</option>
+                            <option>නුවර / கண்டி</option>
+                            <option>නුවරඑලිය / நுவரெலியா</option>
+                            <option>ගාල්ල / கள்ளி</option>
+                            <option>මාතර / மாத்தளை</option>
+                            <option>හම්බන්තොට / ஹம்பந்தோட்டு</option>
+                            <option>යාපනය / யாபனை</option>
+                            <option>මන්නාරම / மன்னாரம்</option>
+                            <option>මු‍ලතිව් / முல்லைத்திவு</option>
+                            <option>වවුනියා / வாவுனியா</option>
+                            <option>ත්‍රිකුණාමලය / திரின்கோமலீ</option>
+                            <option>මඩකලපුව / பட்டிகாலா</option>
+                            <option>අම්පාර / அம்பாரா</option>
+                            <option>පුත්තලම / புத்தாலம்</option>
+                            <option>කුරුණෑගල / குருநாகலா</option>
+                            <option>අනුරාධපුර / அனுராதபுரம்</option>
+                            <option>පොලොන්නරුව / பொல்லன்னறுவ</option>
+                            <option>බදුල්ල / பதுல்லை</option>
+                            <option>මොණරාගල / மோனாரகாலா</option>
+                            <option>කෑගල්ල / கேகல்லை</option>
+                            <option>රත්නපුර / ரத்தினபுரம்</option>
+                            <option>කිලිනොච්චිය / கிளினோச்சி</option>
+                        </select>
+                    </div>
 
-<!-- A/L -->
-<div class="section">
-<h2>GCE A/L Qualifications</h2>
-<div class="grid">
-<input name="alYear" placeholder="Exam Year" required>
-<input name="alIndex" placeholder="Index Number" required>
-<input name="stream" placeholder="Subject Stream" required>
-<input name="alSub1" placeholder="Subject 01 - Grade" required>
-<input name="alSub2" placeholder="Subject 02 - Grade" required>
-<input name="alSub3" placeholder="Subject 03 - Grade" required>
+                    <div class="field">
+                        <label>ජංගම දුරකථන අංකය <br />
+                            கையடக்கத் தொலைபேசி இல. :</label>
+                        <input name="mobile" id="mobile" placeholder="07XXXXXXXX" required />
+                    </div>
 
-<select name="generalEnglish" required>
-<option value="">General English Passed?</option>
-<option>Yes</option>
-<option>No</option>
-</select>
+                    <div class="field">
+                        <label>Whatsapp අංකය <br />
+                            Whatsapp இல.
+                        </label>
+                        <input name="whatsapp" />
+                    </div>
 
-<select name="geGrade">
-<option value="">General English Grade</option>
-<option>A</option>
-<option>B</option>
-<option>C</option>
-<option>S</option>
-<option>F</option>
-</select>
-</div>
-</div>
+                    <div class="field">
+                        <label>උපන් දිනය <br />பிறந்தத்திகதி </label>
+                        <input type="date" name="birthday" id="birthday" required />
+                    </div>
 
-<button type="submit">Submit Application</button>
-<div id="msg"></div>
+                    <div class="field">
+                        <label>2025.06.30 දිනට වයස (උදා: අවුරුදු 23 මාස 05 දින 04) <br />
+                            30.06.2025 அன்று வயது (உ+ம்: 23 ஆண்டுகள் 05 மாதங்கள் 04
+                            நாட்கள்)</label>
+                        <input name="age" id="age" readonly />
+                    </div>
 
-</form>
-</div>
+                    <div class="field">
+                        <label>ඔබ දැනට රාජ්‍ය සේවයේ රැකියාවක නියුක්ත වන්නේ නම් :<br>
+                            நீங்கள் தற்போது அரச சேவையில் பணிபுரிந்தால் :</label>
+                        <label>දැනට ඔබ දරන තනතුර<br>
+                            உங்கள் தற்போதைய நிலை
+                    </div>
+                    <input name="CurrentPosition" />
 
-<script>
+                    <div class="field">
+                        <label>වර්තමාන සේවා ස්ථානය <br>
+                            தற்போதைய பணியிடம் :</label>
+                        <input name="WorkPlace" />
+                    </div>
+                </div>
+            </div>
 
-// AGE AUTO CALCULATION
-document.getElementById("birthday").addEventListener("change", function(){
-let birth = new Date(this.value);
-let today = new Date();
-let age = today.getFullYear() - birth.getFullYear();
-let m = today.getMonth() - birth.getMonth();
-if(m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
-document.getElementById("age").value = age + " years";
-});
+            <!--Exam result details-->
+            <div class="section">
+                <h2>කලමනාකරණ සේවා නිලධාරී සේවයේ III ශ්‍රේණියට බඳවා ගැනීමේ විවෘත තරග විභාගය සම්බන්ධ තොරතුරු
+                    <br>முகாமைத்துவ சேவை உத்தியோகத்தர் சேவையின் தரம் III இற்கு ஆட்சேர்ப்பதற்கான மட்டுப்படுத்தப்பட்ட
+                    போட்டிப் பரீட்சை தொடர்பான தகவல்கள்
+                </h2>
+                <div class="grid">
+                    <div class="field">
+                        <label>ඔබගේ විභාග අංකය <br> உங்கள் பரீட்சை இலக்கம் :</label>
+                        <input name="MSOExamAddmissionNumber" required />
+                    </div>
 
-// VALIDATION + SUBMIT
-document.getElementById("form").addEventListener("submit", function(e){
-e.preventDefault();
+                    <div class="field">
+                        <label>ලකුණු ප්‍රමාණය <br>
+                            புள்ளிகள் :</label>
+                        <input name="MSOExamMarks" required />
+                    </div>
 
-let nic = document.getElementById("nic").value;
-let mobile = document.getElementById("mobile").value;
+                    <div class="field">
+                        <label>ඔබගේ කුසලතාවය <br>
+                            திறமை இலக்கம் :
+                        </label>
+                        <input name="MSOExamRank" required />
+                    </div>
 
-if(!/^([0-9]{9}[vVxX]|[0-9]{12})$/.test(nic)){
-document.getElementById("msg").innerHTML="<p class='error'>Invalid NIC Number</p>";
-return;
-}
+                    <div class="field">
+                        <label>විභාගයට පෙනී සිටි භාෂා මාධ්‍යය <br> பரீட்சைக்குத் தோற்றிய மொழி மூலம் : </label>
+                        <select name="MSOExamMedium" required>
+                            <option value="">Select</option>
+                            <option>සිංහල/ சிங்களம்</option>
+                            <option>දෙමළ/ தமிழ்</option>
+                            <option>ඉංග්‍රීසි/ ஆங்கிலம்</option>
+                        </select>
+                    </div>
 
-if(!/^07[0-9]{8}$/.test(mobile)){
-document.getElementById("msg").innerHTML="<p class='error'>Invalid Mobile Number</p>";
-return;
-}
+                    <div class="field">
+                        <label>විභාග නිවේදනයේ 7.0 අනුව ඔබ පුරප්පාඩු සඳහා තරග කිරීමට තෝරාගත් දිස්ත්‍රික්කය (ඔබ විසින්
+                            විභාග අයදුම්පතේ සඳහන් කළ දිස්ත්‍රික්කය පමණක් සඳහන් කළ යුතු ය.)
+                            <br>தேர்வு அறிவிப்பே 7.0 க்கு ஏற்ப நீங்கள் புறப்படுவதற்கு போட்டிக்கான வாய்ப்பு
+                            மாவட்டத்திற்கு (நீங்கள் தேர்வு பட்டியலில் குறிப்பிடப்பட்ட மாவட்ட)</label>
+                        <select name="ExamDistrict" required>
+                            <option value="">Select District</option>
+                            <option>කොළඹ / கொழும்பு</option>
+                            <option>ගාම්පහ / காம்பா</option>
+                            <option>කළුතර / களுத்தாரா</option>
+                            <option>මාතලේ / மாத்தளை</option>
+                            <option>නුවර / கண்டி</option>
+                            <option>නුවරඑලිය / நுவரெலியா</option>
+                            <option>ගාල්ල / கள்ளி</option>
+                            <option>මාතර / மாத்தளை</option>
+                            <option>හම්බන්තොට / ஹம்பந்தோட்டு</option>
+                            <option>යාපනය / யாபனை</option>
+                            <option>මන්නාරම / மன்னாரம்</option>
+                            <option>මු‍ලතිව් / முல்லைத்திவு</option>
+                            <option>වවුනියා / வாவுனியா</option>
+                            <option>ත්‍රිකුණාමලය / திரின்கோமலீ</option>
+                            <option>මඩකලපුව / பட்டிகாலா</option>
+                            <option>අම්පාර / அம்பாரா</option>
+                            <option>පුත්තලම / புத்தாலம்</option>
+                            <option>කුරුණෑගල / குருநாகலா</option>
+                            <option>අනුරාධපුර / அனுராதபுரம்</option>
+                            <option>පොලොන්නරුව / பொல்லன்னறுவ</option>
+                            <option>බදුල්ල / பதுல்லை</option>
+                            <option>මොණරාගල / மோனாரகாலா</option>
+                            <option>කෑගල්ල / கேகல்லை</option>
+                            <option>රත්නපුර / ரத்தினபுரம்</option>
+                            <option>කිලිනොච්චිය / கிளினோச்சி</option>
+                        </select>
+                    </div>
 
-const data = Object.fromEntries(new FormData(this).entries());
+                    <div class="field">
+                        <label>විභාග නිවේදනයේ 7.0 (ආ) අනුව එම දිස්ත්‍රික්කයට අයත් වීම සඳහා ඔබ විසින් සපුරා ඇති සුදුසුකම
+                            :
+                            <br>விபாக அறிவிப்பின் 7.0 (ஆ) படி அந்த மாவட்டத்துக்கு சார்ந்தவராக இருக்க உங்களால் பூர்த்தி
+                            செய்யப்பட்ட தகுதி :</label>
+                        <div><input type="checkbox" name="SelectedDistricts" value="ByBirth" /> එම දිස්ත්‍රික්කය තුළ
+                            ඉපදුනු අයකු වීම/ இந்த மாவட்டத்தில் தற்போது பிறந்துள்ளது</div>
+                        <br>
+                        <div><input type="checkbox" name="SelectedDistricts" value="PermanentResidence" /> 2025.06.30
+                            දිනට පූර්වයෙන් වූ අවුරුදු පහක් ඇතුළත යටත් පිරිසෙන් අවුරුදු තුනක්වත් අඛණ්ඩව එම දිස්ත්‍රික්කයේ
+                            ස්ථීර වශයෙන් පදිංචිව සිටි අයකු වීම/ 2025.06.30 அன்று முதல் 5 ஆண்டுகளில் 3 ஆண்டுகள்
+                            தொடர்ச்சியாக அந்த மாவட்டத்தில் நிரந்தரமாக வசித்து வந்தவராக இருக்க வேண்டும்</div> <br>
+                        <div><input type="checkbox" name="SelectedDistricts" value="SecondaryEducation" /> නොකඩවා
+                            අවුරුදු පහක් එම දිස්ත්‍රික්කයේ ද්විතීයික පාසල් අධ්‍යාපනය ලබා තිබීම/ தொடர்ச்சியாக 5 ஆண்டுகள்
+                            அந்த மாவட்டத்தில் இரண்டாம் நிலை பாடசாலை கல்வி பெற்றிருப்பது</div>
+                    </div>
+                </div>
+            </div>
 
-fetch("https://script.google.com/macros/s/AKfycbzeP8s3LoyA0hDYSxSnGbSjKinr0_GI2k2QF6XblZlZUw9-siC1d5FW7KjLhAjFChqKxg/exec",{
-method:"POST",
-body:JSON.stringify(data)
-})
-.then(res=>res.text())
-.then(()=>{
-document.getElementById("msg").innerHTML="<p class='success'>Application Submitted Successfully</p>";
-this.reset();
-})
-.catch(()=>{
-document.getElementById("msg").innerHTML="<p class='error'>Submission Failed</p>";
-});
-});
-</script>
+            <!-- O/L -->
+            <div class="section">
+                <h2>අධ්‍යාපන සුදුසුකම්/ கல்வித் தகைமைகள்</h2>
+                <h4>අධ්‍යයන පොදු සහතික පත්‍ර (සාමාන්‍ය පෙළ)
+                    <br>கல்விப் பொதுத் தராதர (சாதாரண தரம்)
+                </h4>
+                මෙම අධ්‍යාපන සුදුසුකම් 2025.06.30 දිනට පෙර සම්පූර්ණ කර තිබිය යුතු වේ.
+                විෂයයේ නම සහ ඔබ ලබාගත් සාමාර්ථය ඉංග්‍රීසි මාධ්‍යයෙන් උදාහරණයේ ආකාරයට පහත සඳහන් කරන්න.
+                <br>උදා:- Mathematics-A
+                <br>இந்த கல்வித் தகைமைகள் 2025.06.30 க்கு முன் பூர்த்தி செய்யப்பட்டிருக்க வேண்டும்.
+                பாடம் மற்றும் நீங்கள் பெற்றுக்கொண்ட பெறுபேறு என்பவற்றை உதாரணத்தில் குறிப்பிடப்பட்டுள்ளதன்படி
+                ஆங்கிலத்தில் குறிப்பிடவும் <br>உதா:- Mathematics - A
+                <br>
+                <div class="grid">
+                    <div class="field">
+                        <label>විභාග වර්ෂය/ பரீட்சை ஆண்டு</label><input name="olYear" required />
+                    </div>
+                    <div class="field">
+                        <label>විභාග අංකය/ பரீட்சை சுட்டெண்</label><input name="olIndex" required />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 01/ பாடம் 01 (Mathematics)</label><input name="maths" required />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 02/ பாடம் 02 (language)</label><input name="language" required />
+                    </div>
 
+                    <div class="field">
+                        <label>විෂයය 03/ பாடம் 03</label><input name="sub3" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 04/ பாடம் 04</label><input name="sub4" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 05/ பாடம் 05</label><input name="sub5" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 06/ பாடம் 06</label><input name="sub6" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 07/ பாடம் 07</label><input name="sub7" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 08/ பாடம் 08</label><input name="sub8" />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 09/ பாடம் 09</label><input name="sub9" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- A/L -->
+            <div class="section">
+                <h2>අධ්‍යාපන සුදුසුකම්/ கல்வித் தகைமைகள்</h2>
+                <h4>අධ්‍යයන පොදු සහතික පත්‍ර (උසස් පෙළ)
+                    கல்விப் பொதுத் தராதர (உயர் தரம்)</h4>
+                මෙම අධ්‍යාපන සුදුසුකම් 2025.06.30 දිනට පෙර සම්පූර්ණ කර තිබිය යුතු වේ.
+                <br> අධ්‍යයන පොදු සහතික පත්‍ර (උසස් පෙළ) විභාගයේ සාමාන්‍ය ඉංග්‍රීසි විෂයය හැර සමත් විෂයයේ නම සහ ඔබ
+                ලබාගත් සාමාර්ථය ඉංග්‍රීසි මාධ්‍යයෙන් උදාහරණයේ ආකාරයට පහත සඳහන් කරන්න.
+                <br> උදා:- Economics-A
+                <br> இந்த கல்வித் தகுதிகள் 2025.06.30 தேதிக்கு முன்பு முழுமையாகப் பூர்த்தியாகியிருக்க வேண்டும்.
+                <br>அதிகரி உயர்நிலைப் பரீட்சையில் (GCE A/L) பொது ஆங்கிலம் தவிர, நீங்கள் தேர்ச்சி பெற்ற பாடத்தின் பெயர்
+                மற்றும் பெறப்பட்ட தரம் ஆங்கிலத்தில், உதாரணம் போல கீழே குறிப்பிடவும்.
+                <br>உதா:- Economics- A
+
+
+                <div class="grid">
+                    <div class="field">
+                        <label>විභාග වර්ෂය/ பரீட்சை ஆண்டு</label><input name="alYear" required />
+                    </div>
+                    <div class="field">
+                        <label>විභාග අංකය/ பரீட்சை சுட்டெண்</label><input name="alIndex" required />
+                    </div>
+                    <div class="field">
+                        <label>උසස් පෙළ විභාගයට පෙනී සිට විෂයය ධාරාව :
+                            <br>உயர்நிலைப் பரீட்சைக்கு தோற்றும் பாடத் துறை:
+                            <br>Ex : Commerce</label><input name="stream" required />
+                    </div>
+
+                    <div class="field">
+                        <label>විෂයය 01/ பாடம் 01</label><input name="alSub1" required />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 02/ பாடம் 02</label><input name="alSub2" required />
+                    </div>
+                    <div class="field">
+                        <label>විෂයය 03/ பாடம் 03</label><input name="alSub3" required />
+                    </div>
+
+                    <div class="field">
+                        <label>ඔබ අධ්‍යයන පොදු සහතික පත්‍ර (උසස් පෙළ) විභාගයේ සාමාන්‍ය ඉංග්‍රීසි විෂයය සමත් ද? <br>
+                            நீங்கள் பொதுப் கல்வி சான்றிதழ் (உயர்தரம்) பரீட்சையில் பொது ஆங்கிலப் பாடத்தில் தேர்ச்சி
+                            பெற்றீர்களா? </label>
+                        <select name="generalEnglish" required>
+                            <option value="">Select</option>
+                            <option>ඔව්/ஆம்</option>
+                            <option>නැත/இல்லை</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>සාමාන්‍ය ඉංග්‍රීසි විෂයය සමත් නම් ලබා ඇති සාමාර්ථය <br> அவ்வாறு தேர்ச்சி பெற்றிருப்பின்
+                            தேர்ச்சியின் தரம் :</label>
+                        <select name="geGrade">
+                            <option value="">Select</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+                            <option>S</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>උසස් අධ්‍යාපන සුදුසුකම් (ඇත්නම් සඳහන් කරන්න.)
+                            <br> உயர்கல்வித் தகைமைகள் (இருந்தால் குறிப்பிடவும்) </label>
+                        <label> ඔබ විසින් උපාධි සුදුසුකමක් සම්පූර්ණ කර ඇත් ද? <br> நீங்கள் பட்டதாரி தகுதியை முழுமையாக
+                            நிறைவு செய்துள்ளீர்களா? :</label>
+                        <select name="degreeQualification" required>
+                            <option value="">Select</option>
+                            <option>ඔව්/ஆம்</option>
+                            <option>නැත/இல்லை</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>ඔබ විසින් උපාධි සුදුසුකමක් සම්පූර්ණ කර ඇත්නම් ලබා ඇති උපාධිය <br> நீங்கள் பட்டதாரி
+                            தகுதியை முழுமையாக நிறைவு செய்திருந்தால் பெற்ற பட்டம் :</label>
+                        <input name="degree" />
+                    </div>
+                    <div class="field">
+                        <label>එම උපාධිය පිරිනමන ලද විශ්වවිද්‍යාලය/ ආයතනය <br>
+                            அந்த பட்டம் வழங்கிய பல்கலைக்கழகம் / நிறுவனம்? :</label>
+                        <input name="degreeUniversity" />
+                    </div>
+                    <div class="field">
+                        <label>උපාධිය වලංගු දිනය <r> பட்டத்தின் செல்லுபடியாகும் தேதி : </label>
+                        <input name="degreeYear" type="date" />
+                    </div>
+                    <div class="field">
+                        <label>වෙනත් උසස් අධ්‍යාපන සුදුසුකම් (ඇත්නම් සඳහන් කරන්න.)
+                            வேறு உயர்க்கல்வி தகுதி (இருந்தால் குறிப்பிடவும்)</label>
+                        <input name="otherDegreeQualification" />
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>ඔබ සේවය කිරීමට මනාපය පළ කරන දිස්ත්‍රික්ක දෙකක් අනුපිළිවෙලින් තෝරන්න.<br>
+                    நீங்கள் சேவை செய்ய விரும்பும் இரண்டு மாவட்டங்களைத் தேர்ந்தெடுக்கவும்.</h2>
+                <div class="grid">
+                    <div class="field">
+                        <label>
+                            (සේවාස්ථාන වලට අනුයුක්ත කිරීමේදී සේවා අවශ්‍යතාව සැලකිල්ලට ගන්නා අතර අනිවාර්යයෙන්ම ඔබ සඳහන්
+                            කරන දිස්ත්‍රික්ක වලට අනුයුක්ත කිරීමට කිසිලෙසකින් හෝ බැඳී නොසිටින බව සැලකිය
+                            යුතු වේ. பணியிடங்களுக்கு பணி ஒதுக்கப்படும்போது சேவைத் தேவைகள்
+                            கணக்கில் எடுத்துக்கொள்ளப்பட்டாலும், நீங்கள் குறிப்பிடும் மாவட்டங்களுக்கு
+                            பணி ஒதுக்கப்பட வேண்டிய கட்டாயம் உங்களுக்கு இல்லை என்பதை கவனத்தில் கொள்க.)</label>
+                    </div>
+
+                    <div class="field">
+                        <label>පළමු මනාපය
+                            <br> முதல் விருப்பம்
+                        </label>
+                        <select name="PreferFirstDistrict" required>
+                            <option value="">Select District</option>
+                            <option>කොළඹ / கொழும்பு</option>
+                            <option>ගාම්පහ / காம்பா</option>
+                            <option>කළුතර / களுத்தாரா</option>
+                            <option>මාතලේ / மாத்தளை</option>
+                            <option>නුවර / கண்டி</option>
+                            <option>නුවරඑලිය / நுவரெலியா</option>
+                            <option>ගාල්ල / கள்ளி</option>
+                            <option>මාතර / மாத்தளை</option>
+                            <option>හම්බන්තොට / ஹம்பந்தோட்டு</option>
+                            <option>යාපනය / யாபனை</option>
+                            <option>මන්නාරම / மன்னாரம்</option>
+                            <option>මු‍ලතිව් / முல்லைத்திவு</option>
+                            <option>වවුනියා / வாவுனியா</option>
+                            <option>ත්‍රිකුණාමලය / திரின்கோமலீ</option>
+                            <option>මඩකලපුව / பட்டிகாலா</option>
+                            <option>අම්පාර / அம்பாரா</option>
+                            <option>පුත්තලම / புத்தாலம்</option>
+                            <option>කුරුණෑගල / குருநாகலா</option>
+                            <option>අනුරාධපුර / அனுராதபுரம்</option>
+                            <option>පොලොන්නරුව / பொல்லன்னறுவ</option>
+                            <option>බදුල්ල / பதுல்லை</option>
+                            <option>මොණරාගල / மோனாரகாலா</option>
+                            <option>කෑගල්ල / கேகல்லை</option>
+                            <option>රත්නපුර / ரத்தினபுரம்</option>
+                            <option>කිලිනොච්චිය / கிளினோச்சி</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label>දෙවන මනාපය
+                            <br>இரண்டாவது விருப்பம்
+                        </label>
+                        <select name="PreferSecondDistrict" required>
+                            <option value="">Select District</option>
+                            <option>කොළඹ / கொழும்பு</option>
+                            <option>ගාම්පහ / காம்பா</option>
+                            <option>කළුතර / களுத்தாரா</option>
+                            <option>මාතලේ / மாத்தளை</option>
+                            <option>නුවර / கண்டி</option>
+                            <option>නුවරඑලිය / நுவரெலியா</option>
+                            <option>ගාල්ල / கள்ளி</option>
+                            <option>මාතර / மாத்தளை</option>
+                            <option>හම්බන්තොට / ஹம்பந்தோட்டு</option>
+                            <option>යාපනය / யாபனை</option>
+                            <option>මන්නාරම / மன்னாரம்</option>
+                            <option>මු‍ලතිව් / முல்லைத்திவு</option>
+                            <option>වවුනියා / வாவுனியா</option>
+                            <option>ත්‍රිකුණාමලය / திரின்கோமலீ</option>
+                            <option>මඩකලපුව / பட்டிகாலா</option>
+                            <option>අම්පාර / அம்பாரா</option>
+                            <option>පුත්තලම / புத்தாலம்</option>
+                            <option>කුරුණෑගල / குருநாகலா</option>
+                            <option>අනුරාධපුර / அனுராதபுரம்</option>
+                            <option>පොලොන්නරුව / பொல்லன்னறுவ</option>
+                            <option>බදුල්ල / பதுல்லை</option>
+                            <option>මොණරාගල / மோனாரகாலா</option>
+                            <option>කෑගල්ල / கேகல்லை</option>
+                            <option>රත්නපුර / ரத்தினபுரம்</option>
+                            <option>කිලිනොච්චිය / கிளினோச்சி</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>ඉහත සඳහන් තොරතුරු සත්‍ය සහ නිවැරදි බව මම සහතික කරමි.
+                            <br>මා කළමනාකරණ සේවා නිලධාරි සේවයේ III ශ්‍රේණියේ පත්වීමක් සඳහා අවශ්‍ය සුදුසුකම් සපුරා ඇති බව
+                            සහතික කරන අතර මා පත්වීමට සුදුසුකම් ලබන්නේ නම්, අනුයුක්ත කරන සේවා ස්ථානයේ සේවය කිරීමට එකඟ වන බවත්, කිසිදු
+                            හේතුවක් නිසා අනුයුක්ත කළ සේවා ස්ථානය වෙනස් කිරීමට ඉල්ලීමක් සිදු නොකරන බවත් මම පොරොන්දු වෙමි.
+                            <br><br>
+                            மேலே உள்ள தகவல்கள் உண்மையானவை மற்றும்
+                            சரியானவை என்று நான் சான்றளிக்கிறேன்.
+                            <br>முகாமைத்துவ சேவை உத்தியோகத்தர் தரம்
+                            III சேவையில் நியமனம் செய்வதற்குத் தேவையான தகுதிகளை நான் பூர்த்தி
+                            செய்துள்ளேன் என்றும், நியமனத்திற்கு நான் தகுதியுடையவனாக இருந்தால்,
+                            இணைப்பு செய்யப்படும் நிலையத்தில் பணியாற்ற உடன்படுகின்றேன் எனவும் மற்றும்
+                            இணைப்பு செய்யப்பட்ட சேவை நிலையத்தை மாற்றக் கோரமாட்டேன் என்றும்
+                            சான்றளிக்கிறேன். </label>
+                    </div>
+                </div>
+<br>
+                <button type="submit">Submit Application</button>
+                <div id="msg"></div>
+        </form>
+    </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
