@@ -1,3 +1,26 @@
+// AGE AUTO CALCULATION
+document.getElementById("birthday").addEventListener("change", function () {
+  let birth = new Date(this.value);
+  let refDate = new Date("2025-06-30");
+
+  let years = refDate.getFullYear() - birth.getFullYear();
+  let months = refDate.getMonth() - birth.getMonth();
+  let days = refDate.getDate() - birth.getDate();
+
+  if (days < 0) {
+    months--;
+    days += 30;
+  }
+
+  if (months < 0) {
+    years--;
+    months += 12;
+  }
+
+  document.getElementById("age").value =
+    `${years} years ${months} months ${days} days`;
+});
+
 document.getElementById("form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
