@@ -48,10 +48,15 @@ document.getElementById("form").addEventListener("submit", async function (e) {
   document.querySelectorAll('input[name="selectedDistricts"]:checked')
     .forEach(el => selectedDistricts.push(el.value));
 
-  const data = Object.fromEntries(formData.entries());
+const data = {};
 
-  // IMPORTANT: same name as Apps Script
-  data.selectedDistricts = selectedDistricts.join(", ");
+// manually collect ALL fields correctly
+formData.forEach((value, key) => {
+  data[key] = value;
+});
+
+// DEBUG (VERY IMPORTANT)
+console.log("FINAL DATA:", data);
 
   document.getElementById("msg").innerHTML = "Submitting...";
 
